@@ -1,1 +1,3 @@
-console.log("why are you here???, are you STUPID")
+let country = "egypt"
+let continent = "africa"
+let population = "estimate: 116"
