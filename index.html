@@ -1,15 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="LECTURE">
-    <title>LECTURE</title>
-    <script src="LECTURE.js"> </script>
-</head>
-<body>
-    <h1>status about egypt</h1>
-    <span>nothing now</span>
-    <iframe width="560" height="315" src="https://www.youtube.com/embed/KKPrW2XbF3U?si=eCXx4M6noQoSucva" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
-</body>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>IP Address</title>
+    <script src = "https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js">
+    </script>
+  </head>
+  <body>
+    <table border = 1 cellpadding = 5>
+      <tr>
+        <td>IP Address</td>
+        <td id = "ip"></td>
+      </tr>
+      <tr>
+        <td>ISP</td>
+        <td id = "isp"></td>
+      </tr>
+      <tr>
+        <td>Country</td>
+        <td id = "country"></td>
+      </tr>
+      <tr>
+        <td>City</td>
+        <td id = "city"></td>
+      </tr>
+      <tr>
+        <td>Google Maps</td>
+        <td>
+          <iframe src="" id = "gmaps" width="400" height="400"></iframe>
+        </td>
+      </tr>
+    </table>
+
+    <script type="text/javascript">
+      $.getJSON('https://ipapi.co/json/', function(data){
+        $("#ip").text(data.ip);
+        $('#isp').text(data.org);
+        $('#country').text(data.country_name);
+        $('#city').text(data.region);
+        $("#gmaps").attr("src", "https://www.google.com/maps?q="+data.latitude+","+data.longitude+"&output=embed");
+      })
+    </script>
+  </body>
 </html>
